@@ -24,7 +24,7 @@
             <edad>44</edad>
         </datospersonales>
         <periodos>10</periodos>
-        <m>20</m>
+        <m>21</m>
         <rejilla>
             <celda f="1" c="1" />
             <celda f="1" c="2" />
@@ -43,6 +43,24 @@
         </datospersonales>
         <periodos>15</periodos>
         <m>30</m>
+        <rejilla>
+            <celda f="1" c="1" />
+            <celda f="1" c="2" />
+            <celda f="2" c="1" />
+            <celda f="2" c="2" />
+            <celda f="6" c="6" />
+            <celda f="6" c="7" />
+            <celda f="7" c="6" />
+            <celda f="7" c="7" />
+        </rejilla>
+    </paciente>
+    <paciente>
+        <datospersonales>
+            <nombre>Julia Martina</nombre>
+            <edad>57</edad>
+        </datospersonales>
+        <periodos>5</periodos>
+        <m>10000</m>
         <rejilla>
             <celda f="1" c="1" />
             <celda f="1" c="2" />
