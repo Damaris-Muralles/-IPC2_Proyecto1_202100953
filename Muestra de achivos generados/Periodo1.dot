@@ -3,8 +3,8 @@ digraph G {
 	rankdir=TB
 	subgraph child {
 		rank=same
-		1 [label="" color=blue group=1]
-		2 [label="" color=blue group=2]
+		1 [label="" fillcolor=white group=1]
+		2 [label="" fillcolor=white group=2]
 		3 [label="" fillcolor=white group=3]
 		4 [label="" fillcolor=white group=4]
 		5 [label="" fillcolor=white group=5]
@@ -16,8 +16,8 @@ digraph G {
 	}
 	subgraph child1 {
 		rank=same
-		11 [label="" color=blue group=1]
-		12 [label="" color=blue group=2]
+		11 [label="" fillcolor=white group=1]
+		12 [label="" fillcolor=white group=2]
 		13 [label="" fillcolor=white group=3]
 		14 [label="" fillcolor=white group=4]
 		15 [label="" fillcolor=white group=5]
@@ -31,8 +31,8 @@ digraph G {
 		rank=same
 		21 [label="" fillcolor=white group=1]
 		22 [label="" fillcolor=white group=2]
-		23 [label="" fillcolor=white group=3]
-		24 [label="" fillcolor=white group=4]
+		23 [label="" color=blue group=3]
+		24 [label="" color=blue group=4]
 		25 [label="" fillcolor=white group=5]
 		26 [label="" fillcolor=white group=6]
 		27 [label="" fillcolor=white group=7]
@@ -43,8 +43,8 @@ digraph G {
 	subgraph child3 {
 		rank=same
 		31 [label="" fillcolor=white group=1]
-		32 [label="" fillcolor=white group=2]
-		33 [label="" fillcolor=white group=3]
+		32 [label="" color=blue group=2]
+		33 [label="" color=blue group=3]
 		34 [label="" fillcolor=white group=4]
 		35 [label="" fillcolor=white group=5]
 		36 [label="" fillcolor=white group=6]
@@ -73,8 +73,8 @@ digraph G {
 		53 [label="" fillcolor=white group=3]
 		54 [label="" fillcolor=white group=4]
 		55 [label="" fillcolor=white group=5]
-		56 [label="" color=blue group=6]
-		57 [label="" color=blue group=7]
+		56 [label="" fillcolor=white group=6]
+		57 [label="" fillcolor=white group=7]
 		58 [label="" fillcolor=white group=8]
 		59 [label="" fillcolor=white group=9]
 		60 [label="" fillcolor=white group=0]
@@ -86,8 +86,8 @@ digraph G {
 		63 [label="" fillcolor=white group=3]
 		64 [label="" fillcolor=white group=4]
 		65 [label="" fillcolor=white group=5]
-		66 [label="" color=blue group=6]
-		67 [label="" color=blue group=7]
+		66 [label="" fillcolor=white group=6]
+		67 [label="" fillcolor=white group=7]
 		68 [label="" fillcolor=white group=8]
 		69 [label="" fillcolor=white group=9]
 		70 [label="" fillcolor=white group=0]

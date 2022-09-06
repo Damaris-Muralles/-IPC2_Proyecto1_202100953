@@ -1,6 +1,6 @@
 from graphviz import Digraph
 
-class Nodo:
+class Node:
     def __init__(self, estado=None, fila=None, columna=None):
         self.estado = estado
         self.fila = fila
@@ -15,7 +15,7 @@ class ListaGrafica:
         self.tam=0
 
     def insertar(self, estado, fila, columna):
-        nuevoNodo = Nodo(estado, fila, columna)
+        nuevoNodo = Node(estado, fila, columna)
         if self.head == None:
             self.head = nuevoNodo
             self.end = self.head
@@ -25,24 +25,23 @@ class ListaGrafica:
             self.end = nuevoNodo
         self.tam += 1
 
-    def imprimir(self):              
-        print("*** Inicio de lista ***")
-        print()
-        nodoTemporal = Nodo("",0,0)
+    def imprimir(self): 
+        #print("tamaño")
+        #print(self.tam)
+        nodoTemporal = Node("",0,0)
         nodoTemporal = self.head
         contador = 0
         while nodoTemporal != None:
             contador += 1
-            print("Nodo:"+str(contador)+" -> "+nodoTemporal.estado+" fila: "+nodoTemporal.fila+
-            "columna: "+nodoTemporal.columna)
+            #print("Nodo:"+str(contador)+" -> "+nodoTemporal.estado+" fila: "+nodoTemporal.fila+
+            #"columna: "+nodoTemporal.columna)
             nodoTemporal = nodoTemporal.siguiente
-        print()
-        print("*** Lista Terminada ***")
-
+        #print()
+        
     def borrar(self):
         for i in range(self.tam-1):
             #creamos un nodo temporal
-            nodoTemporal = Nodo("")
+            nodoTemporal = Node("")
 
             #el temporal empieza en la cabeza
             nodoTemporal = self.head
@@ -55,13 +54,12 @@ class ListaGrafica:
 
                     #Si ese nodo es la cabeza
                     if nodoTemporal == self.head:
-                        print("Borrando dato en la cabeza")
                         self.head = self.head.siguiente
                         nodoTemporal.siguiente = None
                         self.head.anterior = None
         
                 nodoTemporal = nodoTemporal.siguiente
-        nodoTemporal = Nodo("")
+        nodoTemporal = Node("")
 
         #el temporal empieza en la cabeza
         nodoTemporal = self.head
@@ -74,59 +72,185 @@ class ListaGrafica:
 
                 #Si ese nodo es la cabeza
                 if nodoTemporal == self.head:
-                    print("Borrando dato en la cabeza")
+                    #print("Borrando dato en la cabeza")
                     self.head = self.head.siguiente
                     nodoTemporal.siguiente = None
 
 
             nodoTemporal = nodoTemporal.siguiente  
         self.tam=0
-    """
-
-    def iterar(self):
-        print("*** cadena ***")
-        print()
+    
+    def iterar(self, maxfila, maxcolumna):
+        #cadena que guarda el nuevo patron
         cadena= ""
-        nodoTemporal = Nodo("",0,0)
-        actual = Nodo("",0,0)
-        nodoTemporal = self.head
-        actual =self.head.siguiente
-        contador=0
-        i=0
-        while nodoTemporal != None:
-            contador = 1
-            if contador<=nodoTemporal.columna:
-                if contador==1 and (i+1)==1:
-                    if nodoTemporal.estado== "0":
-                        contagiado=0
-                        pass
-                    else:
-                        pass
-                elif contador==nodoTemporal.columna and (i+1)!=nodoTemporal.fila:
-                    pass
-                elif (i+1)==nodoTemporal.fila and contador==1:
-                    pass
-                elif (i+1)==nodoTemporal.fila and contador==nodoTemporal.columna:
-                    pass
+        actual = Node("",0,0)
+        actual = self.head
+        
+        while actual != None:
+            # contadores para validacion
+            contador=0
+            numcontagiado=0
+            # siempre que se cambia a un nuevo nodo para su analisis 
+            # se inicializa el nodo temporal nuevamente
+            nodoTemporal = Node("",0,0)
+            nodoTemporal =self.head
+
+            while nodoTemporal!=None:
+
+                if int(actual.fila) == 0 and int(actual.columna)== 0: 
+                    if actual.siguiente.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1
+
+                elif int(actual.fila)==0 and int(actual.columna)>0 and int(actual.columna)< int(maxcolumna)-1:
+                    if contador==0:
+                        if actual.siguiente.estado== "1":
+                            numcontagiado+=1
+                        if actual.anterior.estado=="1":
+                            numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna == actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1  
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                elif int(actual.fila)==0 and int(actual.columna)==int(maxcolumna)-1:
+                    if actual.anterior.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna == actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                elif int(actual.fila)==int(maxfila)-1 and int(actual.columna)==0:
+                    if actual.siguiente.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1
+                elif int(actual.fila)==int(maxfila)-1 and int(actual.columna)>0 and int(actual.columna)< int(maxcolumna)-1:
+                    if contador==0:
+                        if actual.siguiente.estado== "1":
+                            numcontagiado+=1
+                        if actual.anterior.estado=="1":
+                            numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna == actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1  
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                elif int(actual.fila)==int(maxfila)-1 and int(actual.columna)==int(maxcolumna)-1:
+                    if actual.anterior.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna == actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                elif int(actual.columna)==0 and int(actual.fila)>0 and int(actual.fila)< int(maxfila)-1:
+                    if actual.siguiente.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1   
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1
+
+                elif int(actual.columna)==int(maxcolumna)-1 and int(actual.fila)>0 and int(actual.fila)< int(maxfila)-1:
+                    if actual.anterior.estado== "1" and contador==0:
+                        numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1   
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna== actual.columna:
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                else:
+                    if contador==0:
+                        #print("este es info del nodo actual")
+                        #print(actual.estado, actual.fila, actual.columna)
+                        #print(actual.siguiente.estado)
+                        #print(actual.anterior.estado)
+                        if actual.siguiente.estado== "1":
+                            numcontagiado+=1
+                        if actual.anterior.estado=="1":
+                            numcontagiado+=1
+                        contador=1
+                    if int(nodoTemporal.fila) == int(actual.fila)-1 and nodoTemporal.columna== actual.columna:
+                        #print("este es info de la finla anterior")
+                        #print(nodoTemporal.estado, nodoTemporal.fila, nodoTemporal.columna)
+                        #print(nodoTemporal.siguiente.estado, nodoTemporal.siguiente.fila, nodoTemporal.siguiente.columna)
+                        #print(nodoTemporal.anterior.estado, nodoTemporal.anterior.fila, nodoTemporal.anterior.columna)
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1" :
+                            numcontagiado+=1     
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1   
+                    if int(nodoTemporal.fila) == int(actual.fila)+1 and nodoTemporal.columna== actual.columna:
+                        #print("este es info de la fila siguiente")
+                       # print(nodoTemporal.estado, nodoTemporal.fila, nodoTemporal.columna)
+                        #print(nodoTemporal.siguiente.estado, nodoTemporal.siguiente.fila, nodoTemporal.siguiente.columna)
+                        #print(nodoTemporal.anterior.estado, nodoTemporal.anterior.fila, nodoTemporal.anterior.columna)
+                        if nodoTemporal.estado== "1":
+                            numcontagiado+=1
+                        if nodoTemporal.anterior.estado =="1":
+                            numcontagiado+=1
+                        if nodoTemporal.siguiente.estado =="1":
+                            numcontagiado+=1
+
+                nodoTemporal=nodoTemporal.siguiente
                 
-            contador += 1
+            # validacion para contagios
+            if (numcontagiado == 2 or numcontagiado==3) and actual.estado=="1":
+                cadena=cadena+"1"
+            elif numcontagiado==3 and actual.estado=="0":
+                cadena=cadena+"1"
+            else:
+                cadena=cadena+"0"
 
-            print("Nodo:"+str(contador)+" -> "+nodoTemporal.estado+" fila: "+nodoTemporal.fila+
-            "columna: "+nodoTemporal.columna)
-            nodoTemporal = nodoTemporal.siguiente
-        print()
-        print("*** Terminada ***")
-        pass
-    """       
+            actual = actual.siguiente
 
-    def graficarLista(self, columnas, nuNodos):
-        dot = Digraph('G', filename='Inicial.dot', engine='dot', format='svg')
+        # retorna el nuevo patron
+        return cadena
+     
+    def graficarLista(self, columnas, nuNodos, cont):
+        if cont==0:
+            dot = Digraph('G', filename='Inicial.dot', engine='dot', format='svg')
+        else:
+            dot = Digraph('G', filename= f'Periodo{cont}.dot', engine='dot', format='svg')
         dot.attr(rankdir = "TB")
         dot.node_attr.update(shape="box")
         dot.node_attr['style'] = 'filled'
         dot.node_attr['style'] = 'filled'
 
-        nodoTemporal = Nodo("",0,0)
+        nodoTemporal = Node("",0,0)
         nodoTemporal = self.head
 
         flag = False
@@ -164,5 +288,5 @@ class ListaGrafica:
 
             if i%columnas != 0:
                 dot.edge(str(i), str(i+1))
-        print("GRAFICA COMPLETADA!")
+        print("¡GRAFICA COMPLETADA!")
         dot.view()

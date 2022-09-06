@@ -12,12 +12,12 @@
 <!-- 1 -->
 <g id="node1" class="node">
 <title>1</title>
-<polygon fill="blue" stroke="blue" points="54,-684 0,-684 0,-648 54,-648 54,-684"/>
+<polygon fill="white" stroke="black" points="54,-684 0,-684 0,-648 54,-648 54,-684"/>
 </g>
 <!-- 2 -->
 <g id="node2" class="node">
 <title>2</title>
-<polygon fill="blue" stroke="blue" points="126,-684 72,-684 72,-648 126,-648 126,-684"/>
+<polygon fill="white" stroke="black" points="126,-684 72,-684 72,-648 126,-648 126,-684"/>
 </g>
 <!-- 1&#45;&gt;2 -->
 <g id="edge2" class="edge">
@@ -28,7 +28,7 @@
 <!-- 11 -->
 <g id="node11" class="node">
 <title>11</title>
-<polygon fill="blue" stroke="blue" points="54,-612 0,-612 0,-576 54,-576 54,-612"/>
+<polygon fill="white" stroke="black" points="54,-612 0,-612 0,-576 54,-576 54,-612"/>
 </g>
 <!-- 1&#45;&gt;11 -->
 <g id="edge1" class="edge">
@@ -50,7 +50,7 @@
 <!-- 12 -->
 <g id="node12" class="node">
 <title>12</title>
-<polygon fill="blue" stroke="blue" points="126,-612 72,-612 72,-576 126,-576 126,-612"/>
+<polygon fill="white" stroke="black" points="126,-612 72,-612 72,-576 126,-576 126,-612"/>
 </g>
 <!-- 2&#45;&gt;12 -->
 <g id="edge3" class="edge">
@@ -266,7 +266,7 @@
 <!-- 23 -->
 <g id="node23" class="node">
 <title>23</title>
-<polygon fill="white" stroke="black" points="198,-540 144,-540 144,-504 198,-504 198,-540"/>
+<polygon fill="blue" stroke="blue" points="198,-540 144,-540 144,-504 198,-504 198,-540"/>
 </g>
 <!-- 13&#45;&gt;23 -->
 <g id="edge24" class="edge">
@@ -283,7 +283,7 @@
 <!-- 24 -->
 <g id="node24" class="node">
 <title>24</title>
-<polygon fill="white" stroke="black" points="270,-540 216,-540 216,-504 270,-504 270,-540"/>
+<polygon fill="blue" stroke="blue" points="270,-540 216,-540 216,-504 270,-504 270,-540"/>
 </g>
 <!-- 14&#45;&gt;24 -->
 <g id="edge26" class="edge">
@@ -430,7 +430,7 @@
 <!-- 33 -->
 <g id="node33" class="node">
 <title>33</title>
-<polygon fill="white" stroke="black" points="198,-468 144,-468 144,-432 198,-432 198,-468"/>
+<polygon fill="blue" stroke="blue" points="198,-468 144,-468 144,-432 198,-432 198,-468"/>
 </g>
 <!-- 23&#45;&gt;33 -->
 <g id="edge43" class="edge">
@@ -594,7 +594,7 @@
 <!-- 43 -->
 <g id="node43" class="node">
 <title>43</title>
-<polygon fill="white" stroke="black" points="198,-396 144,-396 144,-360 198,-360 198,-396"/>
+<polygon fill="blue" stroke="blue" points="198,-396 144,-396 144,-360 198,-360 198,-396"/>
 </g>
 <!-- 33&#45;&gt;43 -->
 <g id="edge62" class="edge">
@@ -809,7 +809,7 @@
 <!-- 56 -->
 <g id="node56" class="node">
 <title>56</title>
-<polygon fill="blue" stroke="blue" points="414,-324 360,-324 360,-288 414,-288 414,-324"/>
+<polygon fill="white" stroke="black" points="414,-324 360,-324 360,-288 414,-288 414,-324"/>
 </g>
 <!-- 46&#45;&gt;56 -->
 <g id="edge87" class="edge">
@@ -826,7 +826,7 @@
 <!-- 57 -->
 <g id="node57" class="node">
 <title>57</title>
-<polygon fill="blue" stroke="blue" points="486,-324 432,-324 432,-288 486,-288 486,-324"/>
+<polygon fill="white" stroke="black" points="486,-324 432,-324 432,-288 486,-288 486,-324"/>
 </g>
 <!-- 47&#45;&gt;57 -->
 <g id="edge89" class="edge">
@@ -973,7 +973,7 @@
 <!-- 66 -->
 <g id="node66" class="node">
 <title>66</title>
-<polygon fill="blue" stroke="blue" points="414,-252 360,-252 360,-216 414,-216 414,-252"/>
+<polygon fill="white" stroke="black" points="414,-252 360,-252 360,-216 414,-216 414,-252"/>
 </g>
 <!-- 56&#45;&gt;66 -->
 <g id="edge106" class="edge">
@@ -990,7 +990,7 @@
 <!-- 67 -->
 <g id="node67" class="node">
 <title>67</title>
-<polygon fill="blue" stroke="blue" points="486,-252 432,-252 432,-216 486,-216 486,-252"/>
+<polygon fill="white" stroke="black" points="486,-252 432,-252 432,-216 486,-216 486,-252"/>
 </g>
 <!-- 57&#45;&gt;67 -->
 <g id="edge108" class="edge">
@@ -1233,7 +1233,7 @@
 <!-- 82 -->
 <g id="node82" class="node">
 <title>82</title>
-<polygon fill="white" stroke="black" points="126,-108 72,-108 72,-72 126,-72 126,-108"/>
+<polygon fill="blue" stroke="blue" points="126,-108 72,-108 72,-72 126,-72 126,-108"/>
 </g>
 <!-- 72&#45;&gt;82 -->
 <g id="edge136" class="edge">
@@ -1250,7 +1250,7 @@
 <!-- 83 -->
 <g id="node83" class="node">
 <title>83</title>
-<polygon fill="white" stroke="black" points="198,-108 144,-108 144,-72 198,-72 198,-108"/>
+<polygon fill="blue" stroke="blue" points="198,-108 144,-108 144,-72 198,-72 198,-108"/>
 </g>
 <!-- 73&#45;&gt;83 -->
 <g id="edge138" class="edge">
