@@ -26,9 +26,12 @@ class lector_archivo():
                     celdas_contagiadas = datos.getElementsByTagName("celda")
                     # Se crea cadena con todos los datos de las celdas contagiadas
                     contagiados= ""
-                    for contagiada in celdas_contagiadas:
-                        if contagiada.getAttribute("f")!="0" and contagiada.getAttribute("c")!="0":
-                            contagiados= contagiados+ contagiada.getAttribute("f") +";"+  contagiada.getAttribute("c")+ ";"
+                    for i in range(1,int(tamanio.firstChild.data)):
+                        for j in range(1,int(tamanio.firstChild.data)):
+                            for contagiada in celdas_contagiadas:
+                                if contagiada.getAttribute("f")!="0" and contagiada.getAttribute("c")!="0":
+                                    if int(contagiada.getAttribute("f"))== i and int(contagiada.getAttribute("c"))==j:
+                                        contagiados= contagiados+ contagiada.getAttribute("f") +";"+  contagiada.getAttribute("c")+ ";"
                         
                     #Se crea cadena de toda la informacion 
                     cadena=f"{nombre.firstChild.data},{edad.firstChild.data},{periodos.firstChild.data},{tamanio.firstChild.data},{contagiados}"
@@ -42,7 +45,7 @@ class lector_archivo():
                   
             #  Se imprime la informacion de la estructura (solo para comprobacion de funcionamiento)
             #for d in self.lista.imprimir():
-            #    print(str(d))
+             #   print(str(d))
 
         except:
             print("No se pudo leer el archivo, revisar que la direccion sea correcta")
